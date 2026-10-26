@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp 
+  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" 
+  xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+  xsi:type="TaskPaneApp">
+
+  <Id>b29dc16c-e054-4734-9721-a20c354e6012</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Santosh Shelar</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Market Data Add-in" />
+  <Description DefaultValue="Real-time market quotes, historical prices, financial news, and custom functions =SANTOSH.QUOTE()" />
+  <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png" />
+  <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-80.png" />
+  <SupportUrl DefaultValue="https://localhost:3000" />
+  <AppDomains>
+    <AppDomain>https://localhost:3000</AppDomain>
+  </AppDomains>
+
+  <Hosts>
+    <Host Name="Workbook" />
+  </Hosts>
+
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://localhost:3000/index.html" />
+  </DefaultSettings>
+
+  <Permissions>ReadWriteDocument</Permissions>
+
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Hosts>
+      <Host xsi:type="Workbook">
+        <AllFormFactors>
+          <ExtensionPoint xsi:type="CustomFunctions">
+            <Script>
+              <SourceLocation resid="Functions.Script.Url"/>
+            </Script>
+            <Page>
+              <SourceLocation resid="Functions.Page.Url"/>
+            </Page>
+            <Metadata>
+              <SourceLocation resid="Functions.Metadata.Url"/>
+            </Metadata>
+            <Namespace resid="Functions.Namespace"/>
+          </ExtensionPoint>
+        </AllFormFactors>
+
+        <DesktopFormFactor>
+          <FunctionFile resid="Commands.Url" />
+
+          <!-- Custom Ribbon Tab: Market Data -->
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <CustomTab id="Santosh.MarketDataTab">
+              <!-- Group 1: Quotes & Market Data -->
+              <Group id="Santosh.QuotesGroup">
+                <Label resid="Group.MarketData.Label" />
+                <Icon>
+                  <bt:Image size="16" resid="Icon.16" />
+                  <bt:Image size="32" resid="Icon.32" />
+                  <bt:Image size="80" resid="Icon.80" />
+                </Icon>
+
+                <!-- 1. Quote Button (Opens Quote Taskpane) -->
+                <Control xsi:type="Button" id="Santosh.QuoteBtn">
+                  <Label resid="QuoteBtn.Label" />
+                  <Supertip>
+                    <Title resid="QuoteBtn.Label" />
+                    <Description resid="QuoteBtn.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16" />
+                    <bt:Image size="32" resid="Icon.32" />
+                    <bt:Image size="80" resid="Icon.80" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>Office.AutoShowTaskpaneWithDocument</TaskpaneId>
+                    <SourceLocation resid="Taskpane.Url" />
+                  </Action>
+                </Control>
+
+                <!-- 2. History Button -->
+                <Control xsi:type="Button" id="Santosh.HistoryBtn">
+                  <Label resid="HistoryBtn.Label" />
+                  <Supertip>
+                    <Title resid="HistoryBtn.Label" />
+                    <Description resid="HistoryBtn.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16" />
+                    <bt:Image size="32" resid="Icon.32" />
+                    <bt:Image size="80" resid="Icon.80" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>Office.AutoShowTaskpaneWithDocument</TaskpaneId>
+                    <SourceLocation resid="Taskpane.Url" />
+                  </Action>
+                </Control>
+
+                <!-- 3. News Button -->
+                <Control xsi:type="Button" id="Santosh.NewsBtn">
+                  <Label resid="NewsBtn.Label" />
+                  <Supertip>
+                    <Title resid="NewsBtn.Label" />
+                    <Description resid="NewsBtn.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16" />
+                    <bt:Image size="32" resid="Icon.32" />
+                    <bt:Image size="80" resid="Icon.80" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>Office.AutoShowTaskpaneWithDocument</TaskpaneId>
+                    <SourceLocation resid="Taskpane.Url" />
+                  </Action>
+                </Control>
+
+                <!-- 4. Templates Button -->
+                <Control xsi:type="Button" id="Santosh.TemplatesBtn">
+                  <Label resid="TemplatesBtn.Label" />
+                  <Supertip>
+                    <Title resid="TemplatesBtn.Label" />
+                    <Description resid="TemplatesBtn.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16" />
+                    <bt:Image size="32" resid="Icon.32" />
+                    <bt:Image size="80" resid="Icon.80" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>Office.AutoShowTaskpaneWithDocument</TaskpaneId>
+                    <SourceLocation resid="Taskpane.Url" />
+                  </Action>
+                </Control>
+
+                <!-- 5. Refresh All Data -->
+                <Control xsi:type="Button" id="Santosh.RefreshBtn">
+                  <Label resid="RefreshBtn.Label" />
+                  <Supertip>
+                    <Title resid="RefreshBtn.Label" />
+                    <Description resid="RefreshBtn.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16" />
+                    <bt:Image size="32" resid="Icon.32" />
+                    <bt:Image size="80" resid="Icon.80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>refreshMarketData</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- 6. Insert Sample Watchlist -->
+                <Control xsi:type="Button" id="Santosh.WatchlistBtn">
+                  <Label resid="WatchlistBtn.Label" />
+                  <Supertip>
+                    <Title resid="WatchlistBtn.Label" />
+                    <Description resid="WatchlistBtn.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16" />
+                    <bt:Image size="32" resid="Icon.32" />
+                    <bt:Image size="80" resid="Icon.80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>insertSampleWatchlist</FunctionName>
+                  </Action>
+                </Control>
+
+              </Group>
+              <Label resid="Tab.MarketData.Label" />
+            </CustomTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+
+    <Resources>
+      <bt:Images>
+        <bt:Image id="Icon.16" DefaultValue="https://localhost:3000/assets/icon-16.png" />
+        <bt:Image id="Icon.32" DefaultValue="https://localhost:3000/assets/icon-32.png" />
+        <bt:Image id="Icon.80" DefaultValue="https://localhost:3000/assets/icon-80.png" />
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/index.html" />
+        <bt:Url id="Commands.Url" DefaultValue="https://localhost:3000/commands.html" />
+        <bt:Url id="Functions.Script.Url" DefaultValue="https://localhost:3000/custom-functions/functions.js" />
+        <bt:Url id="Functions.Page.Url" DefaultValue="https://localhost:3000/functions.html" />
+        <bt:Url id="Functions.Metadata.Url" DefaultValue="https://localhost:3000/functions.json" />
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="Functions.Namespace" DefaultValue="SANTOSH" />
+        <bt:String id="Tab.MarketData.Label" DefaultValue="Market Data" />
+        <bt:String id="Group.MarketData.Label" DefaultValue="Market Data" />
+        <bt:String id="QuoteBtn.Label" DefaultValue="Quote" />
+        <bt:String id="HistoryBtn.Label" DefaultValue="History" />
+        <bt:String id="NewsBtn.Label" DefaultValue="News" />
+        <bt:String id="TemplatesBtn.Label" DefaultValue="Templates" />
+        <bt:String id="RefreshBtn.Label" DefaultValue="Refresh All" />
+        <bt:String id="WatchlistBtn.Label" DefaultValue="Watchlist" />
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="QuoteBtn.Tooltip" DefaultValue="Get real-time quotes and insert =SANTOSH.QUOTE() formulas." />
+        <bt:String id="HistoryBtn.Tooltip" DefaultValue="Get historical price data and volume for any symbol." />
+        <bt:String id="NewsBtn.Tooltip" DefaultValue="Latest news and insights for any stock symbol." />
+        <bt:String id="TemplatesBtn.Tooltip" DefaultValue="Ready-to-use market sheets and layouts." />
+        <bt:String id="RefreshBtn.Tooltip" DefaultValue="Update and recalculate all market data in workbook." />
+        <bt:String id="WatchlistBtn.Tooltip" DefaultValue="Inserts sample multi-symbol market watchlist." />
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>

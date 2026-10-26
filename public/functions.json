@@ -1,0 +1,87 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/office-js/custom-functions.json",
+  "functions": [
+    {
+      "id": "QUOTE",
+      "name": "QUOTE",
+      "description": "Returns real-time market data or a specific metric for any symbol.",
+      "helpUrl": "https://localhost:3000",
+      "result": {
+        "type": "any",
+        "dimensionality": "scalar"
+      },
+      "parameters": [
+        {
+          "name": "symbol",
+          "description": "Stock ticker symbol (e.g. AAPL, MSFT, GOOGL, AMZN).",
+          "type": "string",
+          "dimensionality": "scalar"
+        },
+        {
+          "name": "field",
+          "description": "Field to retrieve: price, change, changePercent, open, high, low, volume, marketCap, pe, week52High.",
+          "type": "string",
+          "dimensionality": "scalar",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "HISTORY",
+      "name": "HISTORY",
+      "description": "Returns historical price data for a symbol as a dynamic array.",
+      "helpUrl": "https://localhost:3000",
+      "result": {
+        "type": "any",
+        "dimensionality": "matrix"
+      },
+      "parameters": [
+        {
+          "name": "symbol",
+          "description": "Stock ticker symbol (e.g. AAPL).",
+          "type": "string",
+          "dimensionality": "scalar"
+        },
+        {
+          "name": "startDate",
+          "description": "Start date (YYYY-MM-DD).",
+          "type": "string",
+          "dimensionality": "scalar",
+          "optional": true
+        },
+        {
+          "name": "endDate",
+          "description": "End date (YYYY-MM-DD).",
+          "type": "string",
+          "dimensionality": "scalar",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "NEWS",
+      "name": "NEWS",
+      "description": "Returns latest news headlines and sentiment for a symbol.",
+      "helpUrl": "https://localhost:3000",
+      "result": {
+        "type": "any",
+        "dimensionality": "matrix"
+      },
+      "parameters": [
+        {
+          "name": "symbol",
+          "description": "Stock ticker symbol (e.g. AAPL).",
+          "type": "string",
+          "dimensionality": "scalar"
+        },
+        {
+          "name": "maxResults",
+          "description": "Maximum number of articles to return (default: 3).",
+          "type": "number",
+          "dimensionality": "scalar",
+          "optional": true
+        }
+      ]
+    }
+  ]
+}

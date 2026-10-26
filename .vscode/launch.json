@@ -3,18 +3,27 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "ng serve",
-      "type": "chrome",
-      "request": "launch",
-      "preLaunchTask": "npm: start",
-      "url": "http://localhost:4200/"
+      "name": "Excel Desktop (Edge Chromium)",
+      "type": "msedge",
+      "request": "attach",
+      "useWebView": true,
+      "port": 9222,
+      "timeout": 300000,
+      "webRoot": "${workspaceFolder}"
     },
     {
-      "name": "ng test",
+      "name": "Excel Web (Chrome)",
       "type": "chrome",
       "request": "launch",
-      "preLaunchTask": "npm: test",
-      "url": "http://localhost:9876/debug.html"
+      "url": "https://office.live.com/start/Excel.aspx",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Taskpane Direct Browser Preview",
+      "type": "chrome",
+      "request": "launch",
+      "url": "https://localhost:3000/",
+      "webRoot": "${workspaceFolder}"
     }
   ]
 }

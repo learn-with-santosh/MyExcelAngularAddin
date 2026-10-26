@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+/* Import Kendo UI Default Theme */
+@import "@progress/kendo-theme-default/dist/all.css";
+
+/* Office Add-in Base Styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 13px;
+  background-color: #f8fafc;
+  color: #1e293b;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
